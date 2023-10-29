@@ -4,8 +4,7 @@ use aws_lambda_events::event::cloudwatch_events::CloudWatchEvent;
 use aws_sdk_elasticloadbalancingv2::types::TargetHealthStateEnum as TargetHealth;
 use envconfig::Envconfig;
 use lambda_runtime::{run, service_fn, Error, LambdaEvent};
-use mysql::prelude::*;
-use mysql::*;
+use mysql::{prelude::*, serde, serde_json, Conn, OptsBuilder, Result, Row};
 use serde::Deserialize;
 use tracing::info;
 
@@ -133,7 +132,12 @@ async fn function_handler(_event: LambdaEvent<CloudWatchEvent>) -> Result<(), Er
     let instance_ids =
         get_unhealthy_instances_from_target_group(&client_elbv2, &config.target_group_arn).await?;
 
-    if !instance_ids.is_empty() {
+    if instance_ids.is_empty() {
+        info!(
+            "No unhealthy instances found in target group {}",
+            config.target_group_arn
+        );
+    } else {
         let instances = get_instances_from_instance_ids(&client_ec2, instance_ids).await?;
 
         info!(
@@ -192,11 +196,6 @@ async fn function_handler(_event: LambdaEvent<CloudWatchEvent>) -> Result<(), Er
             .set_instance_ids(Some(instance_ids_to_terminate))
             .send()
             .await?;
-    } else {
-        info!(
-            "No unhealthy instances found in target group {}",
-            config.target_group_arn
-        );
     }
 
     Ok(())
