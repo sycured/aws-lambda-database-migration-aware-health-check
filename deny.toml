@@ -1,0 +1,58 @@
+[advisories]
+vulnerability = "deny"
+unmaintained = "warn"
+yanked = "warn"
+notice = "warn"
+severity-threshold = "None"
+git-fetch-with-cli = true
+
+[licenses]
+unlicensed = "deny"
+allow = [
+    "Apache-2.0",
+    "BSD-3-Clause",
+    "BSL-1.0",
+    "ISC",
+    "LicenseRef-ring",
+    "LicenseRef-webpki",
+    "MIT",
+    "MPL-2.0",
+    "Unicode-DFS-2016",
+]
+copyleft = "warn"
+allow-osi-fsf-free = "neither"
+default = "deny"
+confidence-threshold = 0.95
+
+[[licenses.clarify]]
+name = "ring"
+expression = "LicenseRef-ring"
+license-files = [
+    { path = "LICENSE", hash = 0xbd0eed23 },
+]
+
+[[licenses.clarify]]
+name = "webpki"
+expression = "LicenseRef-webpki"
+license-files = [
+    { path = "LICENSE", hash = 0x001c7e6c },
+]
+
+[[licenses.clarify]]
+name = "rustls-webpki"
+expression = "LicenseRef-webpki"
+license-files = [
+    { path = "LICENSE", hash = 0x001c7e6c },
+]
+
+[bans]
+multiple-versions = "warn"
+wildcards = "allow"
+highlight = "all"
+skip = [
+    { name = "miniz_oxide" },
+]
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
