@@ -203,7 +203,13 @@ async fn function_handler(_event: LambdaEvent<CloudWatchEvent>) -> Result<(), Er
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
-    let config = Config::init_from_env().unwrap();
+    let config = match Config::init_from_env() {
+        Ok(config) => config,
+        Err(e) => {
+            println!("Failed to initialize the configuration: {e:?}");
+            std::process::exit(1);
+        }
+    };
 
     tracing_subscriber::fmt()
         .with_max_level(config.log_level)
