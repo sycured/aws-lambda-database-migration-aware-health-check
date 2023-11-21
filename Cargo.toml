@@ -10,7 +10,7 @@ normal = ["tikv-jemallocator-global"]
 [dependencies]
 aws-config = "0.56.1"
 aws-sdk-ec2 = "0.34.0"
-aws-sdk-elasticloadbalancingv2 = "0.34.0"
+aws-sdk-elasticloadbalancingv2 = "0.39.0"
 aws-sdk-secretsmanager = "0.34.0"
 aws_lambda_events = { version = "0.11.1", default-features = false, features = [
     "cloudwatch_events",
