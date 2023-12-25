@@ -21,7 +21,7 @@ lambda_runtime = "0.8.2"
 mysql = { version = "24.0.0", default-features = false, features = [
     "default-rustls",
 ] }
-serde = "1.0.190"
+serde = "1.0.193"
 serde_json = "1.0.108"
 tikv-jemallocator-global = "0.5.0"
 tokio = { version = "1.33.0", features = ["macros"] }
