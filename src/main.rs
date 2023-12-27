@@ -92,7 +92,7 @@ async fn get_instances_from_instance_ids(
 
     let mut instances = Vec::new();
 
-    for reservation in resp.reservations().unwrap() {
+    for reservation in resp.reservations() {
         let mut v = reservation
             .instances
             .clone()
