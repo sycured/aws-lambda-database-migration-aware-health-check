@@ -180,9 +180,9 @@ dependencies = [
 
 [[package]]
 name = "aws-sdk-ec2"
-version = "1.12.0"
+version = "1.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a3be0adee412136567bc55f54a2138fbcee1ea8cbc486f334bcf74bae81d4929"
+checksum = "43b9050a627f5e0e428b4fff94925a19fe4b12185928e9f8b0b6003a3d5b41fb"
 dependencies = [
  "aws-credential-types",
  "aws-http",
@@ -2766,7 +2766,7 @@ version = "1.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "97fee6b57c6a41524a810daee9286c02d7752c4253064d0b05472833a438f675"
 dependencies = [
- "cfg-if 0.1.10",
+ "cfg-if 1.0.0",
  "rand",
  "static_assertions",
 ]
