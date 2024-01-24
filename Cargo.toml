@@ -17,7 +17,7 @@ aws_lambda_events = { version = "0.13.0", default-features = false, features = [
 ] }
 envconfig = "0.10.0"
 
-lambda_runtime = "0.9.0"
+lambda_runtime = "0.9.1"
 mysql = { version = "24.0.0", default-features = false, features = [
     "default-rustls",
 ] }
