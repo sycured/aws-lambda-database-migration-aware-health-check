@@ -206,12 +206,11 @@ dependencies = [
 
 [[package]]
 name = "aws-sdk-elasticloadbalancingv2"
-version = "1.11.0"
+version = "1.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "71089f6746dcc033f6af5131b6b223e364f68f08cd2efffe64177d98cef1264f"
+checksum = "5a5c8f25525eccc1bdcbbafa6ec86efb6debc4285749e2949ea329f48663eaa0"
 dependencies = [
  "aws-credential-types",
- "aws-http",
  "aws-runtime",
  "aws-smithy-async",
  "aws-smithy-http",
