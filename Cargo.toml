@@ -22,7 +22,7 @@ mysql = { version = "24.0.0", default-features = false, features = [
     "default-rustls",
 ] }
 serde = "1.0.196"
-serde_json = "1.0.113"
+serde_json = "1.0.114"
 tikv-jemallocator-global = "0.5.0"
 tokio = { version = "1.36.0", features = ["macros"] }
 tracing = { version = "0.1.40", features = ["log"] }
